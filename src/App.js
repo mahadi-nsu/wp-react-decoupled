@@ -4,6 +4,7 @@ import AllPost from "./components/AllPost/AllPost";
 import SinglePost from "./components/SinglePost/SinglePost";
 import Login from "./components/Login/Login";
 
+
 function App() {
   return (
     <Router>
