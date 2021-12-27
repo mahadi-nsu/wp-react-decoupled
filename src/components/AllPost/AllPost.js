@@ -6,27 +6,25 @@ import useFetch from "../../services/useApiRequest";
 
 const AllPost = () => {
   const blogUrl =
-    "https://dev-first-wp-test.pantheonsite.io/wp-json/wp/v2/posts/";
-    
+    "https://dev-first-wp-test.pantheonsite.io/wp-json/wp/v2/posts";
+
   const { data, loading, error } = useFetch(blogUrl);
 
   console.log(data);
-  console.log(loading);
-  console.log(error);
+  // console.log(loading);
+  // console.log(error);
+
+  if (loading && data == null) return <div>Loading...</div>;
 
   return (
     <Center className={styles.mainContainer}>
       <div className={styles.heroContainer}>
         <Grid templateColumns="repeat(6, 1fr)" gap={1} p={4}>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {data == null ? (
+            <div>Loading...</div>
+          ) : (
+            data.map((post) => <Post data={post} />)
+          )}
         </Grid>
       </div>
     </Center>

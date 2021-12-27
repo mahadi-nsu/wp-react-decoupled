@@ -1,7 +1,9 @@
 import React from "react";
-import { Box, Image, Badge, Container } from "@chakra-ui/react";
+import { Box, Image, Badge, Center } from "@chakra-ui/react";
+import { useHistory } from "react-router-dom";
 
-const Post = () => {
+const Post = ({ data }) => {
+  const history = useHistory();
   const property = {
     imageUrl: "https://bit.ly/2Z4KKcF",
     imageAlt: "Rear view of modern home with pool",
@@ -11,6 +13,10 @@ const Post = () => {
     formattedPrice: "$1,900.00",
     reviewCount: 34,
     rating: 4,
+  };
+
+  const clickHandler = () => {
+    history.push(`/${data.id}`);
   };
 
   return (
@@ -33,15 +39,28 @@ const Post = () => {
             {property.beds} beds &bull; {property.baths} baths
           </Box>
         </Box>
-
+        <Center>
+          <Box
+            mt="1"
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            bg="yellow"
+            borderRadius="full"
+            // isTruncated
+            onClick={clickHandler}
+          >
+            {data.title.rendered}
+          </Box>
+        </Center>
         <Box
           mt="1"
           fontWeight="semibold"
           as="h4"
           lineHeight="tight"
-          isTruncated
+          // isTruncated
         >
-          {property.title}
+          {data.content.rendered.toString().substr(0, 400)}
         </Box>
 
         <Box>
