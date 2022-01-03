@@ -18,8 +18,11 @@ const AllPost = () => {
 
   return (
     <Center className={styles.mainContainer}>
+      <div>
+        <h2>A Random Blog Site</h2>
+      </div>
       <div className={styles.heroContainer}>
-        <Grid templateColumns="repeat(6, 1fr)" gap={1} p={4}>
+        <Grid templateColumns="repeat(3, 1fr)" gap={1} p={4}>
           {data == null ? (
             <div>Loading...</div>
           ) : (
