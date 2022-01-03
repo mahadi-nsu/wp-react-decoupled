@@ -1,5 +1,21 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
 .heroContainer {
   width: 80%;
   border: 1px solid rgb(124, 87, 87);
   margin-top: 10px;
+}
+.header {
+  font-size: 50px;
+  font-weight: bold;
+  color: teal;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.grid {
+  margin-left: 70px;
 }

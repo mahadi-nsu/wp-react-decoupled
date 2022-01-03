@@ -10,19 +10,20 @@ const AllPost = () => {
 
   const { data, loading, error } = useFetch(blogUrl);
 
-  console.log(data);
-  // console.log(loading);
-  // console.log(error);
-
   if (loading && data == null) return <div>Loading...</div>;
 
   return (
     <Center className={styles.mainContainer}>
-      <div>
-        <h2>A Random Blog Site</h2>
+      <div className={styles.headerDiv}>
+        <h2 className={styles.header}>Tech Blog Site!</h2>
       </div>
       <div className={styles.heroContainer}>
-        <Grid templateColumns="repeat(3, 1fr)" gap={1} p={4}>
+        <Grid
+          templateColumns="repeat(3, 1fr)"
+          gap={1}
+          p={4}
+          className={styles.grid}
+        >
           {data == null ? (
             <div>Loading...</div>
           ) : (
