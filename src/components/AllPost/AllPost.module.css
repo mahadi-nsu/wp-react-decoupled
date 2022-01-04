@@ -19,3 +19,10 @@
 .grid {
   margin-left: 70px;
 }
+.addIcon {
+  margin-left: 93%;
+  margin-top: 15px;
+}
+.addIconContainer {
+  padding: 20px;
+}

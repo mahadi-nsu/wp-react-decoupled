@@ -3,6 +3,7 @@ import { Grid, Center } from "@chakra-ui/react";
 import Post from "../Post/Post";
 import styles from "./AllPost.module.css";
 import useFetch from "../../services/useApiRequest";
+import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 
 const AllPost = () => {
   const blogUrl =
@@ -18,6 +19,9 @@ const AllPost = () => {
         <h2 className={styles.header}>Tech Blog Site!</h2>
       </div>
       <div className={styles.heroContainer}>
+        <div className={styles.addIconContainer}>
+          <AddIcon w={12} h={12} color="green.700" className={styles.addIcon} />
+        </div>
         <Grid
           templateColumns="repeat(3, 1fr)"
           gap={1}

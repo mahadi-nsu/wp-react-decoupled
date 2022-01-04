@@ -49,17 +49,6 @@ const Post = ({ data }) => {
       reviewCount: 34,
       rating: 4,
     },
-    {
-      imageUrl:
-        "https://images.unsplash.com/photo-1572270907014-c31da1c54124?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-      imageAlt: "Rear view of modern home with pool",
-      news: 3,
-      baths: 2,
-      title: "Modern home in city center in the heart of historic Los Angeles",
-      formattedPrice: "$1,900.00",
-      reviewCount: 34,
-      rating: 4,
-    },
   ];
 
   const clickHandler = () => {
