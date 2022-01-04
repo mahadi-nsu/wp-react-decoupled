@@ -27,7 +27,7 @@ const AllPost = () => {
           {data == null ? (
             <div>Loading...</div>
           ) : (
-            data.map((post) => <Post data={post} />)
+            data.map((post) => <Post data={post} key={post.id} />)
           )}
         </Grid>
       </div>

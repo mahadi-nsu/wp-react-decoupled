@@ -88,8 +88,8 @@ const Post = ({ data }) => {
               ml="2"
             >
               {property.news}
-              <Badge borderRadius="full" px="2" colorScheme="red">
-                Tech News
+              <Badge borderRadius="full" px="2" colorScheme="yellow">
+                {data.title.rendered}
               </Badge>{" "}
               &bull; {property.baths}{" "}
               <Badge borderRadius="full" px="2" colorScheme="blue">
@@ -98,37 +98,31 @@ const Post = ({ data }) => {
             </Box>
           </Box>
         </Center>
-        <Center>
-          <Box
-            mt="3"
-            fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-            bg="yellow"
-            borderRadius="full"
-            w="140px"
-            p="5px"
-            cursor="pointer"
-            onClick={clickHandler}
-          >
-            <Center>{data.title.rendered}</Center>
-          </Box>
-        </Center>
+
         <Box
           mt="1"
           fontWeight="semibold"
           as="h4"
           lineHeight="tight"
+
           // isTruncated
         >
-          {ReactHtmlParser(data.excerpt.rendered)}
-        </Box>
+          {ReactHtmlParser(
+            data.content.rendered.toString().slice(0, 170) + "..."
+          )}
 
-        <Box>
-          {property.formattedPrice}
-          <Box as="span" color="gray.600" fontSize="sm">
-            / wk
-          </Box>
+          <Center>
+            <Badge
+              borderRadius="full"
+              p="2"
+              mt="3"
+              colorScheme="red"
+              cursor="pointer"
+              onClick={clickHandler}
+            >
+              Click for details
+            </Badge>
+          </Center>
         </Box>
       </Box>
     </Box>
