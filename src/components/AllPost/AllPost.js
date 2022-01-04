@@ -46,7 +46,13 @@ const AllPost = () => {
           )}
         </div>
 
-        <div className={styles.modal__appear}>{isClicked ? <Modal /> : ""}</div>
+        <div className={styles.modal__appear}>
+          {isClicked ? (
+            <Modal isClicked={isClicked} setIsClicked={setIsClicked} />
+          ) : (
+            ""
+          )}
+        </div>
         <Grid
           templateColumns="repeat(3, 1fr)"
           gap={1}
