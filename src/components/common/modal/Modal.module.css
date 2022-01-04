@@ -1,0 +1,8 @@
+.modal_hero {
+  height: 500px;
+  width: 600px !important;
+  background-color: rgb(250, 244, 244);
+  margin: 0 auto;
+  z-index: 99 !important;
+  border-radius: 5px;
+}
