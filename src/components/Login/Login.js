@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styles from "./Login.module.css";
+import usePost from "../../services/usePostRequest";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const url =
+    "https://dev-first-wp-test.pantheonsite.io/wp-json/jwt-auth/v1/token";
 
   const userNameHandler = (event) => {
     setUsername(event.target.value);
@@ -13,10 +16,12 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-  const submitHandler = () => {
+  const submitHandler = (event) => {
+    event.preventDefault();
     console.log(username);
     console.log(password);
   };
+
   return (
     <div className={styles.login_hero}>
       <input
