@@ -1,0 +1,29 @@
+.login_hero {
+  width: 30%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: aliceblue;
+  margin-top: 180px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+.login_text_input {
+  padding: 13px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  margin-top: 30px;
+  width: 80%;
+  margin-left: 10%;
+}
+.login_button {
+  background-color: rgb(108, 177, 108);
+  padding: 10px;
+  border-radius: 5px;
+  width: 50%;
+  margin: 0 auto;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
