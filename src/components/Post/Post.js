@@ -52,7 +52,7 @@ const Post = ({ data }) => {
   ];
 
   const clickHandler = () => {
-    history.push(`/${data.id}`);
+    history.push(`/posts/${data.id}`);
   };
 
   return (

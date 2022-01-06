@@ -1,9 +1,8 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route  } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AllPost from "./components/AllPost/AllPost";
 import SinglePost from "./components/SinglePost/SinglePost";
 import Login from "./components/Login/Login";
-
 
 function App() {
   return (
@@ -11,12 +10,12 @@ function App() {
       <div>
         <Switch>
           <Route path="/" exact>
-            <AllPost />
-          </Route>
-          <Route path="/login" exact>
             <Login />
           </Route>
-          <Route path="/:id">
+          <Route path="/posts" exact>
+            <AllPost />
+          </Route>
+          <Route path="/posts/:id">
             <SinglePost />
           </Route>
         </Switch>

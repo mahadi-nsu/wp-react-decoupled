@@ -40,7 +40,7 @@ const Login = () => {
       })
       .then((response) => {
         localStorage.setItem("login_info", JSON.stringify(response.data.token));
-        history.push("/");
+        history.push("/posts");
       })
       .catch((error) => {
         setError("Incorrect username or password");

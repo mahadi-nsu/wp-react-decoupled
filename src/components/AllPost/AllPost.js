@@ -23,7 +23,7 @@ const AllPost = () => {
 
   const logoutHandler = () => {
     localStorage.clear();
-    history.replace("/login");
+    history.replace("/");
   };
 
   if (loading && data == null) return <div>Loading...</div>;
