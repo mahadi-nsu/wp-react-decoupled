@@ -1,10 +1,15 @@
 import React, { useState, useCallback } from "react";
 import styles from "./Login.module.css";
-import usePost from "../../services/usePostRequest";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  let history = useHistory();
   const url =
     "https://dev-first-wp-test.pantheonsite.io/wp-json/jwt-auth/v1/token";
 
@@ -16,8 +21,28 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
+    setLoading(true);
+
+    await axios
+      .post(url, {
+        username,
+        password,
+      })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("login_info", JSON.stringify(response.data));
+        history.push("/");
+      })
+      .catch((error) => {
+        setError("Incorrect username or password");
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
     console.log(username);
     console.log(password);
   };
@@ -44,7 +69,7 @@ const Login = () => {
         className={styles.login_button}
         onClick={submitHandler}
       >
-        Submit
+        {loading ? <ClipLoader /> : "Submit"}
       </button>
     </div>
   );
