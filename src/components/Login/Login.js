@@ -8,6 +8,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [validationError, setValidationError] = useState("");
   const [loading, setLoading] = useState(false);
   let history = useHistory();
   const url =
@@ -25,26 +26,29 @@ const Login = () => {
     event.preventDefault();
     setLoading(true);
 
+    if (username.length === 0 || password.length === 0) {
+      setValidationError("Please enter a username and password");
+      alert("Please enter email and password");
+      setLoading(false);
+      return;
+    }
+
     await axios
       .post(url, {
         username,
         password,
       })
       .then((response) => {
-        console.log(response);
         localStorage.setItem("login_info", JSON.stringify(response.data));
         history.push("/");
       })
       .catch((error) => {
         setError("Incorrect username or password");
-        console.log(error);
+        alert("Incorrect email/password!");
       })
       .finally(() => {
         setLoading(false);
       });
-
-    console.log(username);
-    console.log(password);
   };
 
   return (
