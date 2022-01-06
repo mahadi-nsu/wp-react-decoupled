@@ -39,7 +39,7 @@ const Login = () => {
         password,
       })
       .then((response) => {
-        localStorage.setItem("login_info", JSON.stringify(response.data));
+        localStorage.setItem("login_info", JSON.stringify(response.data.token));
         history.push("/");
       })
       .catch((error) => {
