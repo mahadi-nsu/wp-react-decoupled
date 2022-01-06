@@ -5,13 +5,14 @@ import styles from "./AllPost.module.css";
 import useFetch from "../../services/useApiRequest";
 import { MinusIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 import Modal from "../common/modal/Modal";
+import { useHistory } from "react-router-dom";
 
 const AllPost = () => {
   const blogUrl =
     "https://dev-first-wp-test.pantheonsite.io/wp-json/wp/v2/posts";
 
   const { data, loading, error } = useFetch(blogUrl);
-
+  let history = useHistory();
   console.log(data);
 
   const [isClicked, setIsClicked] = useState(false);
@@ -20,12 +21,20 @@ const AllPost = () => {
     setIsClicked(!isClicked);
   };
 
+  const logoutHandler = () => {
+    localStorage.clear();
+    history.replace("/login");
+  };
+
   if (loading && data == null) return <div>Loading...</div>;
 
   return (
     <Center className={styles.mainContainer}>
       <div className={styles.headerDiv}>
         <h2 className={styles.header}>Tech Blog Site!</h2>
+        <button className={styles.headerButton} onClick={logoutHandler}>
+          Logout
+        </button>
       </div>
       <div className={styles.heroContainer}>
         <div className={styles.addIconContainer}>

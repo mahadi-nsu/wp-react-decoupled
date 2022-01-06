@@ -9,6 +9,19 @@
   border: 1px solid rgb(124, 87, 87);
   margin-top: 10px;
 }
+.headerDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.headerButton {
+  background-color: red;
+  float: right;
+  height: 30px;
+  width: 80px;
+  margin-top: 45px;
+  border-radius: 5px;
+}
 .header {
   font-size: 50px;
   font-weight: bold;
