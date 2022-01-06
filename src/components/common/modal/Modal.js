@@ -25,20 +25,25 @@ const Modal = ({ isClicked, setIsClicked }) => {
       return;
     }
 
+    const token = JSON.parse(localStorage.getItem("login_info"));
+
     const headers = {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${localStorage.getItem("login_info")}`,
-      Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGV2LWZpcnN0LXdwLXRlc3QucGFudGhlb25zaXRlLmlvIiwiaWF0IjoxNjQxNDc1MzE3LCJuYmYiOjE2NDE0NzUzMTcsImV4cCI6MTY0MjA4MDExNywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.mSpDIGXnV4W18hA0jyTjbfMv28sK4emm3X63qt-eMG8}`,
+      Authorization: `Bearer ${token}`,
+      // Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGV2LWZpcnN0LXdwLXRlc3QucGFudGhlb25zaXRlLmlvIiwiaWF0IjoxNjQxNDc1MzE3LCJuYmYiOjE2NDE0NzUzMTcsImV4cCI6MTY0MjA4MDExNywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.mSpDIGXnV4W18hA0jyTjbfMv28sK4emm3X63qt-eMG8}`,
     };
     let data = {
       title,
       content,
+      status: "publish",
     };
 
     await axios
       .post(blogUrl, data, { headers })
       .then((response) => {
-        history.push("/");
+        console.log(response);
+        setIsClicked(!isClicked);
+        // history.push("/");
       })
       .catch((error) => {
         console.log(error);

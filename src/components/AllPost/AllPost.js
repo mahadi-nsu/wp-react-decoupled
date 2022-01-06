@@ -12,6 +12,8 @@ const AllPost = () => {
 
   const { data, loading, error } = useFetch(blogUrl);
 
+  console.log(data);
+
   const [isClicked, setIsClicked] = useState(false);
 
   const postBlogHandler = () => {
@@ -71,5 +73,3 @@ const AllPost = () => {
 };
 
 export default AllPost;
-
-
