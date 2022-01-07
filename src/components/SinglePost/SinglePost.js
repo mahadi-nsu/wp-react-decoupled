@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../../services/useApiRequest";
 import "./SinglePost.css";
-import ReactHtmlParser from "react-html-parser";
+// import ReactHtmlParser from "react-html-parser";
 
 const SinglePost = (props) => {
   const property = [
@@ -50,7 +50,11 @@ const SinglePost = (props) => {
           <div class="product-details">
             <h1 className="product-details__title">{data.title.rendered}</h1>
 
-            <p class="information">{ReactHtmlParser(data.content.rendered)}</p>
+            <p class="information">
+              {data.content.rendered
+                .toString()
+                .slice(4, data.content.rendered.toString().length - 5)}
+            </p>
 
             <div class="control">
               <button class="btn">

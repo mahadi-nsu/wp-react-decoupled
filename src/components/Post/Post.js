@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Image, Badge, Center } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
-import ReactHtmlParser from "react-html-parser";
 
 const Post = ({ data }) => {
   const history = useHistory();
@@ -96,9 +95,7 @@ const Post = ({ data }) => {
 
           // isTruncated
         >
-          {ReactHtmlParser(
-            data.content.rendered.toString().slice(0, 170) + "..."
-          )}
+          {data.content.rendered.toString().slice(4, 170) + "..."}
 
           <Center>
             <Badge
