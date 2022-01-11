@@ -42,6 +42,7 @@ const Modal = ({ isClicked, setIsClicked }) => {
       .post(blogUrl, data, { headers })
       .then((response) => {
         console.log(response);
+        alert("Post has been successfully added!");
         setIsClicked(!isClicked);
         // history.push("/");
       })

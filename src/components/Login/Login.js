@@ -3,6 +3,7 @@ import styles from "./Login.module.css";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
+import authService from "../../services/authService";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -32,23 +33,33 @@ const Login = () => {
       setLoading(false);
       return;
     }
+    // TODO: replace by api call custom hook
+    // await axios
+    //   .post(url, {
+    //     username,
+    //     password,
+    //   })
+    //   .then((response) => {
+    //     localStorage.setItem("login_info", JSON.stringify(response.data.token));
+    //     history.push("/posts");
+    //   })
+    //   .catch((error) => {
+    //     setError("Incorrect username or password");
+    //     alert("Incorrect email/password!");
+    //   })
+    //   .finally(() => {
+    //     setLoading(false);
+    //   });
 
-    await axios
-      .post(url, {
-        username,
-        password,
-      })
-      .then((response) => {
-        localStorage.setItem("login_info", JSON.stringify(response.data.token));
-        history.push("/posts");
-      })
-      .catch((error) => {
-        setError("Incorrect username or password");
-        alert("Incorrect email/password!");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    let response = await authService(username, password);
+    if (response) {
+      history.push("/posts");
+      setLoading(false);
+    } else {
+      setError("Incorrect username or password");
+      alert("Incorrect email/password!");
+      setLoading(false);
+    }
   };
 
   return (
